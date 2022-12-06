@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/productos")
-
+//La siguiente linea habilita el acceso desde la api
+@CrossOrigin(methods = [RequestMethod.GET, RequestMethod.POST, RequestMethod.PATCH, RequestMethod.PUT, RequestMethod.DELETE])
 class ProductosController {
     @Autowired
     lateinit var productosService: ProductosService

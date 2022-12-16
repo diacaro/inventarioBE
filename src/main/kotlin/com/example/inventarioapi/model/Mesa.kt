@@ -9,7 +9,7 @@ class Mesa {
     @Id
     @Column(updatable = false)
     var id: Long? = null
-    var mesa : Int? = null
+    var mesa : String? = null
     @Column(name= "id_invernadero")
     var idInvernadero : Long? = null
 }

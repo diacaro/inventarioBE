@@ -22,6 +22,8 @@ class ProductosService {
         return productosRepository.save(productos)
     }
 
+
+
     fun  update (productos: Productos): Productos {
         try {
             productosRepository.findById(productos.id)
@@ -73,6 +75,18 @@ class ProductosService {
         }
         catch (ex: Exception){
             throw ResponseStatusException(HttpStatus.NOT_FOUND,ex.message)
+        }
+    }
+    fun delete (id:Long?): Boolean{
+        try {
+            productosRepository.findById(id)
+                ?: throw Exception("NO existe el ID")
+            productosRepository.deleteById(id!!)
+            return true
+        }
+        catch (ex: Exception) {
+            throw ResponseStatusException(
+                HttpStatus.NOT_FOUND, ex.message, ex)
         }
     }
 

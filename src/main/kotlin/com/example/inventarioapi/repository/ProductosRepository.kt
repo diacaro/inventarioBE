@@ -1,6 +1,5 @@
 package com.example.inventarioapi.repository
 
-import com.example.inventarioapi.model.Categoria
 import com.example.inventarioapi.model.Productos
 import org.springframework.data.jpa.repository.JpaRepository
 

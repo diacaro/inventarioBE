@@ -2,6 +2,7 @@ package com.example.inventarioapi.service
 
 import com.example.inventarioapi.model.Categoria
 import com.example.inventarioapi.model.Mesa
+import com.example.inventarioapi.repository.InvernaderoRepository
 import com.example.inventarioapi.repository.MesaRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
@@ -12,14 +13,29 @@ import org.springframework.web.server.ResponseStatusException
 class MesaService {
     @Autowired
     lateinit var mesaRepository: MesaRepository
+    @Autowired
+    lateinit var invernaderoRepository: InvernaderoRepository
 
     fun list ():List <Mesa>{
         return mesaRepository.findAll()
     }
 
     fun save (mesa: Mesa): Mesa {
-        return mesaRepository.save(mesa)
+        try{
+
+            val response = invernaderoRepository.findById(mesa.idInvernadero)
+                ?: throw Exception("El ID ${mesa.idInvernadero} del invernadero no existe")
+
+            return mesaRepository.save(mesa)
+        }
+        catch (ex: Exception) {
+            throw ResponseStatusException(
+                HttpStatus.NOT_FOUND, ex.message, ex)
+        }
+
     }
+//        return mesaRepository.save(mesa)
+
 
     fun  update (mesa: Mesa): Mesa {
         try {
@@ -29,6 +45,18 @@ class MesaService {
         }
         catch (ex: Exception){
             throw ResponseStatusException(HttpStatus.NOT_FOUND,ex.message)
+        }
+    }
+    fun delete (id:Long?): Boolean{
+        try {
+            mesaRepository.findById(id)
+                ?: throw Exception("NO existe el ID")
+            mesaRepository.deleteById(id!!)
+            return true
+        }
+        catch (ex: Exception) {
+            throw ResponseStatusException(
+                HttpStatus.NOT_FOUND, ex.message, ex)
         }
     }
 

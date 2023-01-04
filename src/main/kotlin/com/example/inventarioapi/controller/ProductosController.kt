@@ -1,5 +1,6 @@
 package com.example.inventarioapi.controller
 import com.example.inventarioapi.model.Productos
+import com.example.inventarioapi.model.ProductosView
 import com.example.inventarioapi.service.ProductosService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
@@ -19,6 +20,15 @@ class ProductosController {
     @GetMapping
     fun list():List<Productos>{
         return productosService.list()
+    }
+
+    @GetMapping ("/{id}")
+    fun listById(@PathVariable id:Long?):Productos?{
+        return productosService.listById(id)
+    }
+    @GetMapping ("/view/full")
+    fun listView():List<ProductosView>{
+        return productosService.listView()
     }
 
     @PostMapping

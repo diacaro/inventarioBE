@@ -2,7 +2,9 @@ package com.example.inventarioapi.service
 
 import com.example.inventarioapi.model.Categoria
 import com.example.inventarioapi.model.Productos
+import com.example.inventarioapi.model.ProductosView
 import com.example.inventarioapi.repository.ProductosRepository
+import com.example.inventarioapi.repository.ProductosRepositoryView
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
@@ -13,9 +15,17 @@ class ProductosService {
 
     @Autowired
     lateinit var productosRepository: ProductosRepository
+    @Autowired
+    lateinit var productosRepositoryView: ProductosRepositoryView
 
     fun list ():List <Productos>{
         return productosRepository.findAll()
+    }
+    fun listById (id:Long?):Productos? {
+        return productosRepository.findById(id)
+    }
+    fun listView ():List <ProductosView>{
+        return productosRepositoryView.findAll()
     }
 
     fun save (productos: Productos): Productos{

@@ -29,5 +29,9 @@ class MesaController {
     fun update (@RequestBody mesa: Mesa): ResponseEntity<Mesa> {
         return  ResponseEntity(mesaService.update(mesa), HttpStatus.OK)
     }
+    @DeleteMapping("/delete/{id}")
+    fun delete (@PathVariable("id") id: Long): Boolean {
+        return mesaService.delete(id)
+    }
 
 }

@@ -1,8 +1,8 @@
 package com.example.inventarioapi.controller
 
 
-import com.example.inventarioapi.model.Invernadero
 import com.example.inventarioapi.model.Mesa
+import com.example.inventarioapi.model.MesaView
 import com.example.inventarioapi.service.MesaService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
@@ -19,6 +19,11 @@ class MesaController {
     @GetMapping
     fun list():List<Mesa>{
         return mesaService.list()
+    }
+
+    @GetMapping ("/view/desk")
+    fun listView():List<MesaView>{
+        return mesaService.listView()
     }
 
     @PostMapping

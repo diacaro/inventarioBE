@@ -47,5 +47,17 @@ class InvernaderoService {
             throw ResponseStatusException(HttpStatus.NOT_FOUND,ex.message)
         }
     }
+    fun delete (id:Long?): Boolean {
+        try {
+            invernaderoRepository.findById(id)
+                ?: throw Exception("El invernadero no existe")
+            invernaderoRepository.deleteById(id!!)
+            return true
+        } catch (ex: Exception) {
+            throw ResponseStatusException(
+                HttpStatus.NOT_FOUND, ex.message, ex
+            )
+        }
+    }
 
 }

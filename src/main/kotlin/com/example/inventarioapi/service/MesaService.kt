@@ -2,8 +2,12 @@ package com.example.inventarioapi.service
 
 import com.example.inventarioapi.model.Categoria
 import com.example.inventarioapi.model.Mesa
+import com.example.inventarioapi.model.MesaView
+import com.example.inventarioapi.model.ProductosView
 import com.example.inventarioapi.repository.InvernaderoRepository
 import com.example.inventarioapi.repository.MesaRepository
+import com.example.inventarioapi.repository.MesaRepositoryView
+import com.example.inventarioapi.repository.ProductosRepositoryView
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
@@ -15,9 +19,15 @@ class MesaService {
     lateinit var mesaRepository: MesaRepository
     @Autowired
     lateinit var invernaderoRepository: InvernaderoRepository
+    @Autowired
+    lateinit var mesaRepositoryView: MesaRepositoryView
 
     fun list ():List <Mesa>{
         return mesaRepository.findAll()
+    }
+
+    fun listView ():List <MesaView>{
+        return mesaRepositoryView.findAll()
     }
 
     fun save (mesa: Mesa): Mesa {

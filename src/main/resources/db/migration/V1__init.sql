@@ -36,6 +36,7 @@ CREATE TABLE IF NOT EXISTS productos (
         id_mesa INT NOT NULL,
         clima VARCHAR (12),
         precio DECIMAL(7,2),
+        cantidad DECIMAL(7,2),
         PRIMARY KEY (id),
         FOREIGN KEY (id_categoria) REFERENCES categoria(id),
         FOREIGN KEY (id_mesa) REFERENCES mesa(id)

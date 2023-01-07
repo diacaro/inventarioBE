@@ -1,6 +1,5 @@
 package com.example.inventarioapi.service
 
-import com.example.inventarioapi.model.Categoria
 import com.example.inventarioapi.model.Productos
 import com.example.inventarioapi.model.ProductosView
 import com.example.inventarioapi.repository.ProductosRepository
@@ -31,7 +30,6 @@ class ProductosService {
     fun save (productos: Productos): Productos{
         return productosRepository.save(productos)
     }
-
 
 
     fun  update (productos: Productos): Productos {
@@ -80,6 +78,19 @@ class ProductosService {
                 ?: throw Exception("Id Existe")
             response.apply {
                 precio= productos.precio
+            }
+            return productosRepository.save(response)
+        }
+        catch (ex: Exception){
+            throw ResponseStatusException(HttpStatus.NOT_FOUND,ex.message)
+        }
+    }
+    fun  updateCantidad (productos: Productos): Productos {
+        try {
+            val response = productosRepository.findById(productos.id)
+                ?: throw Exception("Id Existe")
+            response.apply {
+                cantidad= productos.cantidad
             }
             return productosRepository.save(response)
         }

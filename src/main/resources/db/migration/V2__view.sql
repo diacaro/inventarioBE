@@ -6,3 +6,9 @@ CREATE VIEW productos_view as
     ON p.id_mesa = m.id
     JOIN invernadero i
     ON i.id = m.id_invernadero;
+
+CREATE VIEW mesa_view as
+    select m.*,i.invernadero invernadero
+    from mesa m JOIN invernadero i
+    ON m.id_invernadero = i.id;
+

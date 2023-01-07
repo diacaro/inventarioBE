@@ -13,6 +13,7 @@ class Productos {
     var nombre : String? = null
     var clima : String? = null
     var precio : Double? = null
+    var cantidad : Double? = null
 
     @Column(name= "id_categoria")
     var idCategoria : Long? = null

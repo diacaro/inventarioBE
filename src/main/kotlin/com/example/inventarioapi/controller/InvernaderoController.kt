@@ -35,4 +35,9 @@ class InvernaderoController {
         return  ResponseEntity(invernaderoService.updateSede(invernadero), HttpStatus.OK)
     }
 
+    @DeleteMapping("/delete/{id}")
+    fun delete (@PathVariable("id") id: Long): Boolean {
+        return invernaderoService.delete(id)
+    }
+
 }

@@ -3,10 +3,8 @@ package com.example.inventarioapi.service
 import com.example.inventarioapi.model.Categoria
 import com.example.inventarioapi.repository.CategoriaRepository
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.autoconfigure.integration.IntegrationProperties
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
-import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.server.ResponseStatusException
 
 @Service
@@ -34,6 +32,19 @@ class CategoriaService {
         }
     }
 
+    fun delete (id:Long?): Boolean{
+        try {
+            categoriaRepository.findById(id)
+                ?: throw Exception("La categoria no existe")
+            categoriaRepository.deleteById(id!!)
+            return true
+        }
+        catch (ex: Exception) {
+            throw ResponseStatusException(
+                HttpStatus.NOT_FOUND, ex.message, ex)
+        }
+    }
+
 //    fun  updateCategoria (categoria:Categoria):Categoria{
 //        try {
 //            val response = categoriaRepository.findById(categoria.id)
@@ -47,4 +58,4 @@ class CategoriaService {
 //            throw ResponseStatusException(HttpStatus.NOT_FOUND,ex.message)
 //        }
 //    }
-}
+    }

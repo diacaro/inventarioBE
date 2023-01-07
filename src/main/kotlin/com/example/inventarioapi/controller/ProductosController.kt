@@ -11,11 +11,10 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("/productos")
 //La siguiente linea habilita el acceso desde la api
 @CrossOrigin(methods = [RequestMethod.GET, RequestMethod.POST, RequestMethod.PATCH, RequestMethod.PUT, RequestMethod.DELETE])
+
 class ProductosController {
     @Autowired
     lateinit var productosService: ProductosService
-
-
 
     @GetMapping
     fun list():List<Productos>{
@@ -50,6 +49,10 @@ class ProductosController {
     }
     @PatchMapping ("/updatePrecio")
     fun updatePrecio (@RequestBody productos: Productos): ResponseEntity<Productos> {
+        return  ResponseEntity(productosService.updatePrecio(productos), HttpStatus.OK)
+    }
+    @PatchMapping ("/updateCantidad")
+    fun updateCantidad (@RequestBody productos: Productos): ResponseEntity<Productos> {
         return  ResponseEntity(productosService.updatePrecio(productos), HttpStatus.OK)
     }
     @DeleteMapping("/delete/{id}")

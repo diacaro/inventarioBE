@@ -4,7 +4,6 @@ import com.example.inventarioapi.model.*
 import com.example.inventarioapi.repository.InvernaderoRepository
 import com.example.inventarioapi.repository.MesaRepository
 import com.example.inventarioapi.repository.MesaRepositoryView
-import com.example.inventarioapi.repository.ProductosRepositoryView
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service

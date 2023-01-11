@@ -1,9 +1,6 @@
 package com.example.inventarioapi.service
 
-import com.example.inventarioapi.model.Categoria
 import com.example.inventarioapi.model.Invernadero
-import com.example.inventarioapi.model.Mesa
-import com.example.inventarioapi.model.Productos
 import com.example.inventarioapi.repository.InvernaderoRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus

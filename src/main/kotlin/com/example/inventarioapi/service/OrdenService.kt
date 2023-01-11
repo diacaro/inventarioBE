@@ -7,9 +7,8 @@ import com.example.inventarioapi.repository.OrdenViewRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.domain.Example
 import org.springframework.data.domain.ExampleMatcher
-import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
-import org.springframework.web.server.ResponseStatusException
+
 
 @Service
 class OrdenService {

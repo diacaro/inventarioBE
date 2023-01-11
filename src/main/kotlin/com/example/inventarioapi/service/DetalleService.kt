@@ -1,5 +1,4 @@
 package com.example.inventarioapi.service
-
 import com.example.inventarioapi.model.DetalleView
 import com.example.inventarioapi.modell.Detalle
 import com.example.inventarioapi.repository.DetalleRepository
@@ -8,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.domain.Example
 import org.springframework.data.domain.ExampleMatcher
 import org.springframework.stereotype.Service
+
 
 @Service
 class  DetalleService {

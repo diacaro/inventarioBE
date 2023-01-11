@@ -53,7 +53,7 @@ class ProductosController {
     }
     @PatchMapping ("/updateCantidad")
     fun updateCantidad (@RequestBody productos: Productos): ResponseEntity<Productos> {
-        return  ResponseEntity(productosService.updatePrecio(productos), HttpStatus.OK)
+        return  ResponseEntity(productosService.updateCantidad(productos), HttpStatus.OK)
     }
     @DeleteMapping("/delete/{id}")
     fun delete (@PathVariable("id") id: Long): Boolean {

@@ -18,6 +18,9 @@ class InvernaderoService {
     fun list ():List <Invernadero>{
         return invernaderoRepository.findAll()
     }
+    fun listById (id:Long?):Invernadero? {
+        return invernaderoRepository.findById(id)
+    }
 
     fun save (invernadero: Invernadero): Invernadero {
         return invernaderoRepository.save(invernadero)

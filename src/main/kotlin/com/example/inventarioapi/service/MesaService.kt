@@ -1,9 +1,6 @@
 package com.example.inventarioapi.service
 
-import com.example.inventarioapi.model.Categoria
-import com.example.inventarioapi.model.Mesa
-import com.example.inventarioapi.model.MesaView
-import com.example.inventarioapi.model.ProductosView
+import com.example.inventarioapi.model.*
 import com.example.inventarioapi.repository.InvernaderoRepository
 import com.example.inventarioapi.repository.MesaRepository
 import com.example.inventarioapi.repository.MesaRepositoryView
@@ -25,7 +22,13 @@ class MesaService {
     fun list ():List <Mesa>{
         return mesaRepository.findAll()
     }
+    fun listById (id:Long?):Mesa? {
+        return mesaRepository.findById(id)
+    }
 
+    fun listByInvernaderoId (id:Long?):List <Mesa> {
+        return mesaRepository.ListByInvernaderoId(id)
+    }
     fun listView ():List <MesaView>{
         return mesaRepositoryView.findAll()
     }

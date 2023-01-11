@@ -1,6 +1,7 @@
 package com.example.inventarioapi.controller
 
 
+import com.example.inventarioapi.model.Invernadero
 import com.example.inventarioapi.model.Mesa
 import com.example.inventarioapi.model.MesaView
 import com.example.inventarioapi.service.MesaService
@@ -20,7 +21,14 @@ class MesaController {
     fun list():List<Mesa>{
         return mesaService.list()
     }
-
+    @GetMapping ("/{id}")
+    fun listById(@PathVariable id:Long?): Mesa?{
+        return mesaService.listById(id)
+    }
+    @GetMapping ("/invernadero/{invernaderoId}")
+    fun listByInvernadero(@PathVariable("invernaderoId") invernaderoId: Long):List<Mesa>{
+        return mesaService.listByInvernaderoId(invernaderoId)
+    }
     @GetMapping ("/view/desk")
     fun listView():List<MesaView>{
         return mesaService.listView()

@@ -2,6 +2,7 @@ package com.example.inventarioapi.controller
 
 import com.example.inventarioapi.model.Categoria
 import com.example.inventarioapi.model.Invernadero
+import com.example.inventarioapi.model.Productos
 import com.example.inventarioapi.service.InvernaderoService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
@@ -20,6 +21,10 @@ class InvernaderoController {
         return invernaderoService.list()
     }
 
+    @GetMapping ("/{id}")
+    fun listById(@PathVariable id:Long?): Invernadero?{
+        return invernaderoService.listById(id)
+    }
     @PostMapping
     fun save(@RequestBody invernadero: Invernadero): Invernadero {
         return invernaderoService.save(invernadero)

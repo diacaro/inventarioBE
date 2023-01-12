@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository
 @Repository
 interface DetalleRepository : JpaRepository<Detalle, Long?> {
     fun findById (id: Long?): Detalle?
-    @Query(nativeQuery = true)
-    fun findByOrdenIdAndProductId (idOrden: Long?,idProductos: Long?):  Detalle?
+//    @Query(nativeQuery = true)
+//    fun findByOrdenAndProductId (idOrden: Long?,idProductos: Long?):  Detalle?
 
 
 }

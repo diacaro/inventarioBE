@@ -22,8 +22,8 @@ class DetalleController {
         return detalleService.listById(id)
     }
     @GetMapping("/{idOrden}/orden")
-    fun listDetalleByOrdenId (@PathVariable("idOrden") idOrden: Long): List<DetalleView>? {
-        return detalleService.getDetalleByOrdenId(idOrden)
+    fun listDetalleByOrden (@PathVariable("idOrden") idOrden: Long): List<DetalleView>? {
+        return detalleService.getDetalleByOrden(idOrden)
     }
 
     @PostMapping

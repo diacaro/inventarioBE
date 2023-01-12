@@ -10,5 +10,5 @@ interface DetalleViewRepository : JpaRepository<DetalleView, Long?> {
     fun findById (id: Long?): DetalleView?
 
     @Query(nativeQuery = true)
-    fun getDetalleByOrdenId(@Param("idOrden") idOrden:Long): List<DetalleView>
+    fun getDetalleByOrden(@Param("idOrden") idOrden:Long): List<DetalleView>
 }

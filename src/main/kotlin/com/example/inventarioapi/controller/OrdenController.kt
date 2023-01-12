@@ -24,8 +24,8 @@ class OrdenController {
     }
 
     @GetMapping("/{id}/clientes")
-    fun listClientesByOrdenId (@PathVariable("id") id: Long): OrdenView{
-        return ordenService.getClienteByOrdenId( id )
+    fun listClientesByOrden (@PathVariable("id") id: Long): OrdenView{
+        return ordenService.getClienteByOrden( id )
     }
 
     @GetMapping("/last/created")

@@ -12,7 +12,7 @@ interface OrdenViewRepository : JpaRepository<OrdenView, Long?> {
     fun findById (id: Long?): OrdenView?
 
     @Query(nativeQuery = true)
-    fun getClienteByOrdenId (@Param("id") id:Long): OrdenView
+    fun getClienteByOrden (@Param("id") id:Long): OrdenView
 
     @Query(nativeQuery = true)
     fun listLastTen (): List<OrdenView>

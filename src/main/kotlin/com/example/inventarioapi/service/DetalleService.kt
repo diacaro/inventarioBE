@@ -28,8 +28,8 @@ class  DetalleService {
         return detalleRepository.findById(id)
     }
 
-    fun getDetalleByOrdenId (idOrden:Long):List <DetalleView> ?{
-        return detalleViewRepository.getDetalleByOrdenId(idOrden)
+    fun getDetalleByOrden (idOrden:Long):List <DetalleView> ?{
+        return detalleViewRepository.getDetalleByOrden(idOrden)
     }
 
     fun save (detalle: Detalle):Detalle?{

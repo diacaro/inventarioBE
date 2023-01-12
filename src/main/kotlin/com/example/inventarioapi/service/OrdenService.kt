@@ -29,9 +29,9 @@ class OrdenService {
         return ordenRepository.findById(id)
     }
 
-    fun listInvoiceAmbience ():List<OrdenView>{
-        return ordenViewRepository.findAll()
-    }
+//    fun listInvoiceAmbience ():List<OrdenView>{
+//        return ordenViewRepository.findAll()
+//    }
 
     fun listByFullName (word:String):List<OrdenView>{
         return ordenViewRepository.listByFullname(word)
@@ -53,8 +53,8 @@ class OrdenService {
         return ordenRepository.save(orden)
     }
 
-    fun getClienteByOrdenId (id:Long):OrdenView{
-        return ordenViewRepository.getClienteByOrdenId(id)
+    fun getClienteByOrden (id:Long):OrdenView{
+        return ordenViewRepository.getClienteByOrden(id)
     }
 
     fun delete (id: Long?):Boolean?{

@@ -3,7 +3,7 @@ package com.example.inventarioapi.model
 import java.util.Date
 import javax.persistence.*
 @Entity
-@Table(name = "orden")
+@Table(name = "orden_view")
 class OrdenView {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

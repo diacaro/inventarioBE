@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/detalle")
+
 @CrossOrigin(methods = [RequestMethod.GET, RequestMethod.POST, RequestMethod.PATCH, RequestMethod.PUT, RequestMethod.DELETE])
 class DetalleController {
     @Autowired
@@ -16,6 +17,10 @@ class DetalleController {
     fun list (@RequestHeader headers: HashMap<String, String>,detail:Detalle):List <Detalle>{
         return detalleService.list(detail)
     }
+//    @GetMapping
+//    fun listDetalleProductosId (): List<DetalleView>{
+//        return detalleService.listProductosId()
+//    }
 
     @GetMapping("/{id}")
     fun listById (@PathVariable("id") id: Long): Detalle?{

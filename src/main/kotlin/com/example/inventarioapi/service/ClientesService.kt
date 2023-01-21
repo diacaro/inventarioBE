@@ -1,6 +1,7 @@
 package com.example.inventarioapi.service
 
 import com.example.inventarioapi.model.Clientes
+import com.example.inventarioapi.model.Mesa
 import com.example.inventarioapi.repository.ClientesRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
@@ -21,6 +22,9 @@ class ClientesService {
     }
 //    fun listView ():List <ProductosView>{
 //        return productosRepositoryView.findAll()
+//    }
+//    fun listByClientesId (id:Long?):List <Clientes> {
+//        return clientesRepository.listByClientesId(id)
 //    }
 
     fun save (clientes: Clientes): Clientes{

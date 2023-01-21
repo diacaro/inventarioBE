@@ -14,5 +14,5 @@ class Orden {
     @Column(name="create_at")
     var createAt: Date? = null
     @Column(name = "id_clientes")
-    var idclientes: Long? = null
+    var idClientes: Long? = null
 }

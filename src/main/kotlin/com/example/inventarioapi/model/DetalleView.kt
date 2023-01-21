@@ -8,9 +8,20 @@ class DetalleView {
     @Id
     @Column(updatable = false)
     var id: Long? = null
+    var cantidad : Double? = null
     @Column(name="id_orden")
     var idOrden: Long? = null
     @Column(name="id_productos")
     var idProductos: Long? = null
+    var nombre : String? = null
+    @Column(name= "id_mesa")
+    var idMesa : Long? = null
+    var mesa : String? = null
+    var invernadero : String? = null
 
 }
+
+//cant
+//nombre (producto)
+//mesa
+//invernadero

@@ -12,7 +12,6 @@ class MesaView {
     var mesa : String? = null
     @Column(name= "id_invernadero")
     var idInvernadero : Long? = null
-
     var invernadero : String? = null
 
 }

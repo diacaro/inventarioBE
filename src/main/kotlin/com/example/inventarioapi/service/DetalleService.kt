@@ -1,4 +1,5 @@
 package com.example.inventarioapi.service
+
 import com.example.inventarioapi.model.DetalleView
 import com.example.inventarioapi.modell.Detalle
 import com.example.inventarioapi.repository.DetalleRepository
@@ -27,10 +28,14 @@ class  DetalleService {
     fun listById (id:Long?):Detalle?{
         return detalleRepository.findById(id)
     }
+    fun listProductosId ():List<DetalleView>{
+        return detalleViewRepository.findAll()
+    }
 
     fun getDetalleByOrden (idOrden:Long):List <DetalleView> ?{
         return detalleViewRepository.getDetalleByOrden(idOrden)
     }
+
 
     fun save (detalle: Detalle):Detalle?{
         return detalleRepository.save(detalle)

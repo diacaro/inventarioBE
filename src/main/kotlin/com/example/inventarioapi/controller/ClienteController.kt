@@ -1,5 +1,6 @@
 package com.example.inventarioapi.controller
 import com.example.inventarioapi.model.Clientes
+import com.example.inventarioapi.model.Mesa
 import com.example.inventarioapi.service.ClientesService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
@@ -24,6 +25,10 @@ class ClienteController {
     fun listById(@PathVariable id:Long?):Clientes?{
         return clientesService.listById(id)
     }
+//    @GetMapping ("/clientes/{clientesId}")
+//    fun listByClientes(@PathVariable("clientesId") clientesId: Long):List<Clientes>{
+//        return clientesService.listByClientesId(clientesId)
+//    }
 
     @PostMapping
     fun save(@RequestBody clientes: Clientes): Clientes {

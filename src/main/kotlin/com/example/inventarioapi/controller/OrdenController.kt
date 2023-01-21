@@ -2,6 +2,7 @@ package com.example.inventarioapi.controller
 import com.example.inventarioapi.model.Clientes
 import com.example.inventarioapi.model.Orden
 import com.example.inventarioapi.model.OrdenView
+import com.example.inventarioapi.model.Productos
 import com.example.inventarioapi.service.ClientesService
 import com.example.inventarioapi.service.OrdenService
 import org.springframework.beans.factory.annotation.Autowired
@@ -19,19 +20,24 @@ class OrdenController {
     lateinit var ordenService: OrdenService
 
     @GetMapping
-    fun list (@RequestHeader headers: HashMap<String, String>,orden:Orden):List <Orden>{
-        return ordenService.list(orden)
+    fun list():List<Orden>{
+        return ordenService.list()
     }
 
-    @GetMapping("/{id}/clientes")
-    fun listClientesByOrden (@PathVariable("id") id: Long): OrdenView{
-        return ordenService.getClienteByOrden( id )
-    }
+//    @GetMapping
+//    fun list (@RequestHeader headers: HashMap<String, String>,orden:Orden):List <Orden>{
+//        return ordenService.list(orden)
+//    }
 
-    @GetMapping("/last/created")
-    fun listLast (): List<OrdenView>{
-        return ordenService.listLast()
+    @GetMapping("/view/ordenes")
+    fun listClientesByOrden (): List<OrdenView>{
+        return ordenService.listOrdenClientes()
     }
+//
+//    @GetMapping("/last/created")
+//    fun listLast (): List<OrdenView>{
+//        return ordenService.listLast()
+//    }
 
     @GetMapping("/{id}")
     fun listById (@PathVariable("id") id: Long): Orden?{

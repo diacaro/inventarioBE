@@ -56,8 +56,10 @@ CREATE TABLE IF NOT EXISTS detalles (
         id serial,
         id_orden INT NOT NULL,
         id_productos INT NOT NULL,
+        cantidad DECIMAL(7,2),
         PRIMARY KEY (id),
         FOREIGN KEY (id_orden) REFERENCES orden(id),
         FOREIGN KEY (id_productos) REFERENCES productos(id)
+        --cantidad
 
       );

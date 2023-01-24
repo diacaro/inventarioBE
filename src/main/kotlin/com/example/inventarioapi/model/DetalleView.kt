@@ -14,8 +14,6 @@ class DetalleView {
     @Column(name="id_productos")
     var idProductos: Long? = null
     var nombre : String? = null
-    @Column(name= "id_mesa")
-    var idMesa : Long? = null
     var mesa : String? = null
     var invernadero : String? = null
 

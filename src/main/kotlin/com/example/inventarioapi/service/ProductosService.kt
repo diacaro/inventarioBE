@@ -5,6 +5,10 @@ import com.example.inventarioapi.model.ProductosView
 import com.example.inventarioapi.repository.ProductosRepository
 import com.example.inventarioapi.repository.ProductosRepositoryView
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.data.domain.Example
+import org.springframework.data.domain.ExampleMatcher
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 import org.springframework.web.server.ResponseStatusException
@@ -16,6 +20,14 @@ class ProductosService {
     lateinit var productosRepository: ProductosRepository
     @Autowired
     lateinit var productosRepositoryView: ProductosRepositoryView
+
+    fun listPageable (pageable: Pageable,productos: Productos):Page<Productos>{
+        val matcher = ExampleMatcher.matching()
+            .withIgnoreNullValues()
+            .withMatcher(("field"), ExampleMatcher.GenericPropertyMatchers.contains().ignoreCase())
+        return productosRepository.findAll(Example.of(productos, matcher), pageable)
+    }
+
 
     fun list ():List <Productos>{
         return productosRepository.findAll()

@@ -3,6 +3,7 @@ import com.example.inventarioapi.model.Productos
 import com.example.inventarioapi.model.ProductosView
 import com.example.inventarioapi.service.ProductosService
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -28,6 +29,12 @@ class ProductosController {
     @GetMapping ("/view/full")
     fun listView():List<ProductosView>{
         return productosService.listView()
+    }
+
+    @GetMapping
+    fun listPage (productos: Productos, pageable: Pageable):ResponseEntity<*>{
+        val response= productosService.listPageable(pageable,productos)
+        return ResponseEntity(response, HttpStatus.OK)
     }
 
     @PostMapping

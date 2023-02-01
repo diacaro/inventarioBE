@@ -31,7 +31,7 @@ class ProductosController {
         return productosService.listView()
     }
 
-    @GetMapping
+    @GetMapping("/page")
     fun listPage (productos: Productos, pageable: Pageable):ResponseEntity<*>{
         val response= productosService.listPageable(pageable,productos)
         return ResponseEntity(response, HttpStatus.OK)
